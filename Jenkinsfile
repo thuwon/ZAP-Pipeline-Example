@@ -16,6 +16,11 @@ pipeline {
                 sh'docker ps'
             }
         }
+        stage ('Open Webswing') {
+            steps {
+                sh'docker run -u zap -p 8080:8080 -p 8090:8090 -d --name zap --hostname zap owasp/zap2docker-stable zap-webswing.sh --wait'
+            }
+        }
         stage ('Zap Status') {
             steps {
                 sh'docker exec zap zap-cli --api-key 5364864132243598723485 status '
