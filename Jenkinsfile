@@ -16,11 +16,6 @@ pipeline {
                 sh'docker ps'
             }
         }
-        stage ('Open Webswing') {
-            steps {
-                sh'docker exec zap zap-webswing.sh'
-            }
-        }
         stage ('Zap Status') {
             steps {
                 sh'docker exec zap zap-cli --api-key 5364864132243598723485 status '
