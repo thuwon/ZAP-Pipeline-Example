@@ -10,6 +10,11 @@ pipeline {
                 '''
             }
         }
+        stage ('Remove Containers') {
+            steps {
+                sh'docker compose down --remove-orphans -v'
+            }
+        }
         stage ('Docker Compose Test') {
             steps {
                 sh'docker compose up -d --no-color'
@@ -26,10 +31,6 @@ pipeline {
                 sh'docker exec zap zap-baseline.py -t http://localhost:8081/WebGoat'
             }
         }
-        stage ('Remove Containers') {
-            steps {
-                sh'docker compose down --remove-orphans -v'
-            }
-        }
+        
     }
 }
