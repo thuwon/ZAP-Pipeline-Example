@@ -16,6 +16,11 @@ pipeline {
                 sh'docker ps'
             }
         }
+        stage ('Test') {
+            steps {
+                sh'docker exec zap zap-baseline.py -t http://localhost:8081/WebGoat'
+            }
+        }
         stage ('Remove Containers') {
             steps {
                 sh'docker compose down --remove-orphans -v'
