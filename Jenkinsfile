@@ -12,7 +12,7 @@ pipeline {
         }
         stage ('Docker Compose Test') {
             steps {
-                sh'docker compose up -d --no-color --wait'
+                sh'docker compose up -d --no-color'
                 sh'docker ps'
             }
         }
