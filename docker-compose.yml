@@ -2,6 +2,7 @@ version: '3'
 
 services:
   zap:
+    container_name: zap
     image: owasp/zap2docker-weekly
     ports:
       - 8000:8000
@@ -12,6 +13,7 @@ services:
       - zap:/zap/data
   # docker-compose information taken from the project at https://github.com/WebGoat/WebGoat
   webgoat:
+    container_name: goat
     image: webgoat/webgoat
     ports:
       - "8081:8080" # Port changed from 8080 on localhost so as not to conflict with Jenkins
