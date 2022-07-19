@@ -16,6 +16,11 @@ pipeline {
                 sh'docker ps'
             }
         }
+        stage ('Zap Status') {
+            steps {
+                sh'docker exec zap zap-cli status'
+            }
+        }
         stage ('Test') {
             steps {
                 sh'docker exec zap zap-baseline.py -t http://localhost:8081/WebGoat'
