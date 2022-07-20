@@ -1,6 +1,13 @@
 pipeline {
     agent any
     stages {
+        stage ('Checkout?') {
+            steps {
+                dir('gh') {
+                    checkout scm
+                }
+            }
+        }
         stage ('Verify Tooling') {
             steps {
                 sh'''
