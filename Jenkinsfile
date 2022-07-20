@@ -29,7 +29,7 @@ pipeline {
         }
         stage ('Test') {
             steps {
-                sh'docker exec zap zap-baseline.py -t http://webgoat:8080/WebGoat/ -n data/WebGoat.context'
+                sh'docker exec zap zap-full-scan.py -t http://webgoat:8080/WebGoat/ -n data/WebGoat.context'
             }
         }
         stage ('Clean up') {
