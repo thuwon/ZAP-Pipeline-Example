@@ -10,11 +10,6 @@ pipeline {
                 '''
             }
         }
-        stage ('Cat?') {
-            steps {
-                sh'cat ./zap/data/WebGoat.context'
-            }
-        }
         stage ('Remove old containers') {
             steps {
                 sh'docker compose down --remove-orphans -v'
@@ -28,8 +23,7 @@ pipeline {
         }
         stage ('Add Webgoat Context') {
             steps {
-                sh'curl -LJO https://raw.githubusercontent.com/thuwon/trigger/main/zap/data/WebGoat.context'
-                sh'docker cp ./WebGoat.context zap:zap/wrk/data'
+                 sh'docker cp ./zap/data/WebGoat.context zap:zap/wrk/data'
             }
         }
         stage ('Test') {
