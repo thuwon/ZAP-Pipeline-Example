@@ -23,7 +23,7 @@ pipeline {
         }
         stage ('Test') {
             steps {
-                sh'docker exec zap zap-baseline.py -t http://webgoat:8080/WebGoat/'
+                sh'docker exec zap zap-baseline.py -t http://webgoat:8080/WebGoat/ -n data/WebGoat.context'
             }
         }
         stage ('Clean up') {
