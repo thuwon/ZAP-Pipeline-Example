@@ -10,11 +10,6 @@ pipeline {
                 '''
             }
         }
-        stage ('Remove Containers') {
-            steps {
-                sh'docker compose down --remove-orphans -v'
-            }
-        }
         stage ('Docker Compose Test') {
             steps {
                 sh'docker compose up -d --no-color'
