@@ -18,7 +18,7 @@ pipeline {
         }
         stage ('Test') {
             steps {
-                sh'docker exec zap zap-baseline.py -t http://localhost:8081/WebGoat'
+                sh'docker exec zap zap-baseline.py -t http://example.com'
             }
         }
         stage ('Clean up') {
