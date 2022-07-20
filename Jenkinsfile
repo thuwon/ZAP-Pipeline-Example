@@ -10,6 +10,11 @@ pipeline {
                 '''
             }
         }
+        stage ('Cat?') {
+            steps {
+                sh'cat ./zap/data/WebGoat.context'
+            }
+        }
         stage ('Remove old containers') {
             steps {
                 sh'docker compose down --remove-orphans -v'
