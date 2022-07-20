@@ -23,6 +23,7 @@ pipeline {
         }
         stage ('Zap Status') {
             steps {
+                sh'sleep 10s'
                 sh'docker exec zap zap-cli status '
             }
         }
