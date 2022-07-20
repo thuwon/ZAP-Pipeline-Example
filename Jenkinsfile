@@ -10,11 +10,6 @@ pipeline {
                 '''
             }
         }
-        stage ('Checkout repo') {
-            dir('idk') {
-                checkout scm
-            }
-        }
         stage ('Remove old containers') {
             steps {
                 sh'docker compose down --remove-orphans -v'
