@@ -23,7 +23,7 @@ pipeline {
         }
         stage ('Zap Status') {
             steps {
-                sh'docker exec zap zap-cli --api-key 5364864132243598723485 status '
+                sh'docker exec zap zap-clistatus '
             }
         }
         stage ('Test') {
