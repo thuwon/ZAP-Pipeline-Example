@@ -21,6 +21,12 @@ pipeline {
                 sh'docker ps'
             }
         }
+        stage ('Add Webgoat Context') {
+            steps {
+                sh'curl -LJO https://raw.githubusercontent.com/thuwon/trigger/main/zap/data/WebGoat.context'
+                sh'docker cp ./WebGoat.context:zap/wrk/data'
+            }
+        }
         stage ('Test') {
             steps {
                 sh'docker exec zap zap-baseline.py -t http://webgoat:8080/WebGoat/ -n data/WebGoat.context'
