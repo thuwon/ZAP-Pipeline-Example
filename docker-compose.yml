@@ -15,6 +15,9 @@ services:
   webgoat:
     container_name: goat
     image: webgoat/webgoat
+    ports:
+      - "8081:8080" # Port changed from 8080 on localhost so as not to conflict with Jenkins
+      - "9001:9001"
     volumes:
       - webgoat:/home/webgoat/.webgoat
 
