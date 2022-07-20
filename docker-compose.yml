@@ -21,3 +21,6 @@ services:
       - "9001:9001"
     volumes:
       - webgoat:/home/webgoat/.webgoat
+
+volumes:
+  webgoat:
