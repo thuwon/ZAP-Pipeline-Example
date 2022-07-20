@@ -10,7 +10,8 @@ services:
     #entrypoint: zap-x.sh -daemon -host 0.0.0.0 -port 8000 -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true -config api.key=5364864132243598723485
     entrypoint: zap.sh -daemon -host 0.0.0.0 -port 8091 -config api.disablekey=true -config database.recoverylog=false -config connection.timeoutInSecs=120 -config api.addrs.addr.name=.* -config api.addrs.addr.regex=true
     volumes:
-      - zap:/zap/data
+      - $(pwd)/zap:/zap/data
+      - /Users/thuan/Documents/GitHub-ibmgcloud/BA/trigger/zap:/zap/wrk
   # docker-compose information taken from the project at https://github.com/WebGoat/WebGoat
   webgoat:
     container_name: goat
@@ -20,7 +21,3 @@ services:
       - "9001:9001"
     volumes:
       - webgoat:/home/webgoat/.webgoat
-
-volumes:
-  webgoat:
-  zap:
