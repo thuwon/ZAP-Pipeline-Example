@@ -23,7 +23,7 @@ pipeline {
         }
         stage ('Zap Status') {
             steps {
-                sh'docker exec zap zap-clistatus '
+                sh'docker exec zap zap-cli status '
             }
         }
         stage ('Test') {
