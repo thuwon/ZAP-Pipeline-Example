@@ -18,6 +18,7 @@ pipeline {
         }
         stage ('Test') {
             steps {
+                sh'sleep 15s'
                 sh'docker exec zap zap-baseline.py -t http://webgoat:8081/WebGoat/'
             }
         }
