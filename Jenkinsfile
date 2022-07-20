@@ -24,7 +24,7 @@ pipeline {
         stage ('Add Webgoat Context') {
             steps {
                 sh'curl -LJO https://raw.githubusercontent.com/thuwon/trigger/main/zap/data/WebGoat.context'
-                sh'docker cp ./WebGoat.context:zap/wrk/data'
+                sh'docker cp ./WebGoat.context zap:zap/wrk/data'
             }
         }
         stage ('Test') {
