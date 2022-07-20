@@ -29,6 +29,7 @@ pipeline {
         }
         stage ('Test') {
             steps {
+                sh'sleep 15s'
                 sh'docker exec zap zap-full-scan.py -t http://webgoat:8080/WebGoat/ -n data/WebGoat.context'
             }
         }
