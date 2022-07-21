@@ -30,9 +30,16 @@ pipeline {
             steps {
                 sh'ls -a'
                 sh'docker build -t seleniumbase -f ./selenium/Dockerfile .'
-                sh'docker run -d -p 4444:4444 -itd --network=dockercompose_default seleniumbase'
-                sh'sleep 3s'
-                sh'docker ps'
+                sh'docker run --name sad_banzai -d -p 4444:4444 -itd --network=dockercompose_default seleniumbase'
+            }
+        }
+        stage('Selenium Test') {
+            steps {
+                sh'docker network create --subnet 172.28.0.0/16 testnet'
+                sh'docker network connect --ip 172.28.1.1 testnet zap'
+                sh'docker network connect --ip 172.28.1.2 testnet goat'
+                sh'docker network connect --ip 172.28.1.3 testnet sad_banzai'
+                sh'docker exec sad_banzai py.test -s --browser=chrome --headless --proxy=172.28.1.1:8091'
             }
         }
         stage ('Test') {
