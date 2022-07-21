@@ -26,6 +26,14 @@ pipeline {
                  sh'docker cp ./zap/data/WebGoat.context zap:zap/wrk/data'
             }
         }
+        stage ('Build Seleniumbase image') {
+            steps {
+                sh'docker build -t seleniumbase -f ./selenium/Dockerfile .'
+                sh'docker run -p 4444:4444 seleniumbase'
+                sh'sleep 3s'
+                sh'docker ps'
+            }
+        }
         stage ('Test') {
             steps {
                 sh'sleep 15s'
