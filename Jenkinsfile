@@ -38,7 +38,7 @@ pipeline {
         }
         stage('Create test network') {
             steps {
-                sh'sleep 5s'
+                sh'sleep 15s'
                 sh'docker network create --subnet 172.28.0.0/16 testnet'
                 sh'docker network connect --ip 172.28.1.1 testnet zap'
                 sh'docker network connect --ip 172.28.1.2 testnet goat'
