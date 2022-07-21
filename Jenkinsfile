@@ -30,7 +30,7 @@ pipeline {
             steps {
                 sh'ls -a'
                 sh'docker build -t seleniumbase -f ./selenium/Dockerfile .'
-                sh'docker run -p 4444:4444 seleniumbase'
+                sh'docker run -d -p 4444:4444 -itd --network=dockercompose_default seleniumbase'
                 sh'sleep 3s'
                 sh'docker ps'
             }
