@@ -28,6 +28,7 @@ pipeline {
         }
         stage ('Build Seleniumbase image') {
             steps {
+                sh'ls -a'
                 sh'docker build -t seleniumbase -f ./selenium/Dockerfile .'
                 sh'docker run -p 4444:4444 seleniumbase'
                 sh'sleep 3s'
