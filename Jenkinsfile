@@ -12,7 +12,10 @@ pipeline {
         }
         stage ('Remove old containers') {
             steps {
+                sh'docker stop sad_banzai'
+                sh'docker rm sad_banzai'
                 sh'docker compose down --remove-orphans -v'
+                sh'docker network rm testnet'
             }
         }
         stage ('Docker Compose Test') {
@@ -33,12 +36,18 @@ pipeline {
                 sh'docker run --name sad_banzai -d -p 4444:4444 -itd --network=dockercompose_default seleniumbase'
             }
         }
-        stage('Selenium Test') {
+        stage('Create test network') {
             steps {
+                sh'sleep 5s'
                 sh'docker network create --subnet 172.28.0.0/16 testnet'
                 sh'docker network connect --ip 172.28.1.1 testnet zap'
                 sh'docker network connect --ip 172.28.1.2 testnet goat'
                 sh'docker network connect --ip 172.28.1.3 testnet sad_banzai'
+                
+            }
+        }
+        stage('Test using seleniumbase') {
+            steps {
                 sh'docker exec sad_banzai py.test -s --browser=chrome --headless --proxy=172.28.1.1:8091'
             }
         }
