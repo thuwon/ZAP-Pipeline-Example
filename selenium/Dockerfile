@@ -17,6 +17,6 @@ RUN pip3 install pytest
 
 RUN seleniumbase install chromedriver
 
-COPY tests/* user/src/app/
+COPY ./selenium/tests/* user/src/app/
 
 RUN mkdir -p /results
