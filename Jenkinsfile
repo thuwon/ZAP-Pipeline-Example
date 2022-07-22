@@ -49,9 +49,9 @@ pipeline {
         stage('Test using seleniumbase') {
             steps {
                 sh'docker exec sad_banzai py.test -s --browser=chrome --headless --proxy=172.28.1.1:8091'
-                sh'curl -X GET http://zap:8091/HTML/core/view/alerts > /results/zap/html/results.HTML'
-                sh'curl -X GET http://zap:8091/JSON/core/view/alerts > /results/zap/json/results.JSON'
-                sh'cat /results/zap/json/results.JSON'
+                sh'docker exec sad_banzai curl -X GET http://zap:8091/HTML/core/view/alerts > /results/zap/html/results.HTML'
+                sh'docker exec sad_banzai curl -X GET http://zap:8091/JSON/core/view/alerts > /results/zap/json/results.JSON'
+                sh'docker exec sad_banzai cat /results/zap/json/results.JSON'
             }
         }
         stage ('Test') {
