@@ -12,10 +12,10 @@ pipeline {
         }
         stage ('Remove old containers') {
             steps {
-                sh'docker stop sad_banzai'
-                sh'docker rm sad_banzai'
+                //sh'docker stop sad_banzai'
+                //sh'docker rm sad_banzai'
                 sh'docker compose down --remove-orphans -v'
-                sh'docker network rm testnet'
+                //sh'docker network rm testnet'
             }
         }
         stage ('Docker Compose Test') {
@@ -29,13 +29,13 @@ pipeline {
                  sh'docker cp ./zap/data/WebGoat.context zap:zap/wrk/data'
             }
         }
-        stage ('Build Seleniumbase image') {
-            steps {
-                sh'ls -a'
-                sh'docker build -t seleniumbase -f ./selenium/Dockerfile .'
-                sh'docker run --name sad_banzai -d -p 4444:4444 -itd --network=dockercompose_default seleniumbase'
-            }
-        }
+        //stage ('Build Seleniumbase image') {
+        //    steps {
+        //        sh'ls -a'
+        //        sh'docker build -t seleniumbase -f ./selenium/Dockerfile .'
+        //        sh'docker run --name sad_banzai -d -p 4444:4444 -itd --network=dockercompose_default seleniumbase'
+        //    }
+        //}
         //stage('Create test network') {
         //    steps {
         //        sh'sleep 15s'
@@ -56,6 +56,7 @@ pipeline {
         //}
         stage ('Test') {
             steps {
+                sh'sleep 15s'
                 sh'docker exec zap zap-full-scan.py -t http://webgoat:8080/WebGoat/ -n data/WebGoat.context'
             }
         }
