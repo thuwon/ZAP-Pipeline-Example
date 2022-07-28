@@ -10,14 +10,14 @@ pipeline {
                 '''
             }
         }
-        stage ('Remove old containers') {
-            steps {
-                sh'docker stop sad_banzai'
-                sh'docker rm sad_banzai'
-                sh'docker compose down --remove-orphans -v'
-                sh'docker network rm testnet'
-            }
-        }
+        //stage ('Remove old containers') {
+        //    steps {
+        //        sh'docker stop sad_banzai'
+        //        sh'docker rm sad_banzai'
+        //        sh'docker compose down --remove-orphans -v'
+        //        sh'docker network rm testnet'
+        //    }
+        //}
         stage ('Docker Compose Test') {
             steps {
                 sh'docker compose up -d --no-color'
