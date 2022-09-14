@@ -26,4 +26,5 @@ docker compose up -d
 ```
 
 If everything has been set up correctly, you should be able to run a test from Jenkin's interface. The 'Test' stage should fail with console logs looking like the following:
+
 ![ZAPJenkinsOutput!](/assets/ZAPJenkinsOutput.png)
