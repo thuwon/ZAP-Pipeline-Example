@@ -6,13 +6,13 @@ In this set up, Jenkins will be used in a containerized form with the DinD worki
 
 To set up Jenkins and DinD, the [official guide](https://www.jenkins.io/doc/book/installing/docker/) is used with a slight variation. First, the DinD is started using the following shell command.
 ```
-  docker run --name jenkins-docker --rm --detach \
-  --privileged --network jenkins --network-alias docker \
-  --env DOCKER_TLS_CERTDIR=/certs \
-  --volume jenkins-docker-certs:/certs/client \
-  --volume jenkins-data:/var/jenkins_home \
-  --publish 2376:2376 \
-  docker:dind --storage-driver overlay2
+docker run --name jenkins-docker --rm --detach \
+--privileged --network jenkins --network-alias docker \
+--env DOCKER_TLS_CERTDIR=/certs \
+--volume jenkins-docker-certs:/certs/client \
+--volume jenkins-data:/var/jenkins_home \
+--publish 2376:2376 \
+docker:dind --storage-driver overlay2
 ```
 
 Instead of the official Jenkins Docker image, a customized version with additional docker-compose-plugin dependencies will be used. This image can be built using the following command from the same directory the file is located at. (Don't forget the dot "." at the end)
