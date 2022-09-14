@@ -15,6 +15,22 @@ To set up Jenkins and DinD, the [official guide](https://www.jenkins.io/doc/book
   docker:dind --storage-driver overlay2
 ```
 
+Instead of the official Jenkins Docker image, a customized version with additional docker-compose-plugin dependencies will be used. This image can be built using the following command from the same directory the file is located at. (Don't forget the dot "." at the end)
+```
+docker build -t myjenkins-blueocean:2.346.2-1 .
+```
+
+Subsequently, the image is run using the following shell command.
+```
+docker run --name jenkins-blueocean --restart=on-failure --detach \
+--network jenkins --env DOCKER_HOST=tcp://docker:2376 \
+--env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 \
+--publish 8080:8080 --publish 50000:50000 \
+--volume jenkins-data:/var/jenkins_home \
+--volume jenkins-docker-certs:/certs/client:ro \
+myjenkins-blueocean:2.346.2-1
+```
+
 Please follow the [official guide](https://www.jenkins.io/doc/book/installing/docker/) to complete setting up Jenkins locally.
 
 Furthermore, please set up your Jenkins Pipeline to pull the Jenkinsfile from a remote repository as can be seen in the image below.
