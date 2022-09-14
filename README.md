@@ -18,4 +18,4 @@ To set up Jenkins and DinD, the [official guide](https://www.jenkins.io/doc/book
 Please follow the [official guide](https://www.jenkins.io/doc/book/installing/docker/) to complete setting up Jenkins locally.
 
 Furthermore, please set up your Jenkins instance to pull the Jenkinsfile from a remote repository as this.
-![JenkinsConfExample]!(/assets/JenkinsConfExample.png)
+![JenkinsConfExample!](/assets/JenkinsConfExample.png)
