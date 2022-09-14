@@ -19,3 +19,11 @@ Please follow the [official guide](https://www.jenkins.io/doc/book/installing/do
 
 Furthermore, please set up your Jenkins Pipeline to pull the Jenkinsfile from a remote repository as can be seen in the image below.
 ![JenkinsConfExample!](/assets/JenkinsConfExample.png)
+
+Run the following command from where the docker-compose.yml file is located at to start a ZAP and WebGoat container for testing purposes.
+```
+docker compose up -d
+```
+
+If everything has been set up correctly, you should be able to run a test from Jenkin's interface. The 'Test' stage should fail with console logs looking like the following:
+
