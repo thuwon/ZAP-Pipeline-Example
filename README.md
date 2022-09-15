@@ -1,3 +1,4 @@
+### Set Up
 For the purposes of demonstrating a possible integration case using ZAP, a Jenkins and Docker in Docker (DinD) approach has been chosen. This environment has been set up using an Apple MacBook Pro 2019 version running macOS Montery Version 12.4 with Docker and Java 15.0.2 installed. Using docker as a basis for setting up the environment should ease reproducing the following results on different systems. Commands utilized may differ though, as it is the case for windows systems. But in general this guide should be applicable to all systems after setting up Jenkins and DinD.
 
 
