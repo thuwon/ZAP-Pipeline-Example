@@ -47,3 +47,9 @@ If everything has been set up correctly, you should be able to run a test from J
 ![ZAPJenkinsOutput!](/assets/ZAPJenkinsOutput.png)
 
 If you run into any issues, feel free to contact me
+
+### Other Resources
+|Article etc. |Description|
+|[https://ieeexplore.ieee.org/document/9233212/](https://ieeexplore.ieee.org/document/9233212/) |Scientific article this pipeline is mostly based on|
+
+### Additional Notes
