@@ -52,5 +52,8 @@ If you run into any issues, feel free to contact me
 |Article etc. |Description|
 |---|---|
 |[Continuous Security Testing: A Case Study on Integrating Dynamic Security Testing Tools in CI/CD Pipelines](https://ieeexplore.ieee.org/document/9233212/) |Scientific article this pipeline is mostly based on|
-
+|[Dynamic Security Scanning in a CI: ZAP Scanning with Jenkins](https://nullsweep.com/dynamic-security-scanning-in-a-ci-zap-scanning-with-jenkins/) |Zap Jenkins Example with WebGoat Context|
+|[Security/Pen Testing: A guide to run OWASP Zap headless in containers for CI/CD pipeline](https://medium.com/engineered-publicis-sapient/security-pen-testing-a-guide-to-run-owasp-zap-headless-in-containers-for-ci-cd-pipeline-ddb580dae3c8) |ZAP Jenkins Example|
 ### Additional Notes
+
+- Jenkins ZAP Plugin ist deprecated und von der Nutzung wird abgeraten (auch von Simon Bennet)
