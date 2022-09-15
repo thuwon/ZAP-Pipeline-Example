@@ -51,6 +51,6 @@ If you run into any issues, feel free to contact me
 ### Other Resources
 |Article etc. |Description|
 |---|---|
-|[https://ieeexplore.ieee.org/document/9233212/](https://ieeexplore.ieee.org/document/9233212/) |Scientific article this pipeline is mostly based on|
+|[Continuous Security Testing: A Case Study on Integrating Dynamic Security Testing Tools in CI/CD Pipelines](https://ieeexplore.ieee.org/document/9233212/) |Scientific article this pipeline is mostly based on|
 
 ### Additional Notes
