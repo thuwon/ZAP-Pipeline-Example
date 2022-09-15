@@ -54,6 +54,8 @@ If you run into any issues, feel free to contact me
 |[Continuous Security Testing: A Case Study on Integrating Dynamic Security Testing Tools in CI/CD Pipelines](https://ieeexplore.ieee.org/document/9233212/) |Scientific article this pipeline is mostly based on|
 |[Dynamic Security Scanning in a CI: ZAP Scanning with Jenkins](https://nullsweep.com/dynamic-security-scanning-in-a-ci-zap-scanning-with-jenkins/) |Zap Jenkins Example with WebGoat Context|
 |[Security/Pen Testing: A guide to run OWASP Zap headless in containers for CI/CD pipeline](https://medium.com/engineered-publicis-sapient/security-pen-testing-a-guide-to-run-owasp-zap-headless-in-containers-for-ci-cd-pipeline-ddb580dae3c8) |ZAP Jenkins Example|
+|[Automated Pen Testing With Zed Attack Proxy](https://mydeveloperplanet.com/2021/04/13/automated-pen-testing-with-zed-attack-proxy/) |3 or 4 part series about automating ZAP|
 ### Additional Notes
 
 - Jenkins ZAP Plugin ist deprecated und von der Nutzung wird abgeraten (auch von Simon Bennet)
+- [ZAP-CLI](https://github.com/Grunny/zap-cli) which ships with the official [ZAP Docker Image](https://hub.docker.com/r/owasp/zap2docker-stable/) apparently checks port 8080 only (can't find the stackoverflow post where this was mentioned, status check is implemted [here](https://github.com/Grunny/zap-cli/blob/master/zapcli/cli.py) )
